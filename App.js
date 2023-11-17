@@ -5,18 +5,39 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.navbar}>
-      <Image source={require('./assets/zyro-image.jpg')} style={styles.logo} />
-      <Text style={styles.title}>AUTOPARTES JUCAR SAS</Text>
-    </View>
-    <View style={styles.card}>
+        <Image
+          source={require('./assets/zyro-image.jpg')}
+          style={styles.logo}
+        />
+        <Text style={styles.title}>AUTOPARTES JUCAR SAS</Text>
+      </View>
+
+      <View style={styles.card}>
         <View style={styles.form}>
-          <Image source={{ uri: 'https://us.123rf.com/450wm/rigsby8131/rigsby81311704/rigsby8131170400147/75488593-tuercas-pernos-y-arandelas-en-un-fondo-de-acero.jpg?ver=6' }} style={styles.image} />
-          <Text style={styles.titleIni}>Iniciar sesión </Text>
+          <Image
+            source={{
+              uri: 'https://us.123rf.com/450wm/rigsby8131/rigsby81311704/rigsby8131170400147/75488593-tuercas-pernos-y-arandelas-en-un-fondo-de-acero.jpg?ver=6',
+            }}
+            style={styles.image}
+          />
+          <Text style={styles.titleInicard}>Iniciar sesión </Text>
           <TextInput style={styles.input} placeholder="Usuario" />
-          <TextInput style={styles.input} placeholder="Contraseña" secureTextEntry={true} />
+          <TextInput
+            style={styles.input}
+            placeholder="Contraseña"
+            secureTextEntry={true}
+          />
           <Button title="INGRESAR" style={styles.button} />
           <Text style={styles.link}>Olvidaste la Contraseña?</Text>
           <Text style={styles.link}>Aun no tienes perfil?</Text>
+        </View>
+      </View>
+
+      <View style={styles.footer}>
+        <View style={styles.containerFooter}>
+          <Text style={styles.titleFooter}>Derechos reservados Jucar S.A.S</Text>
+          <Text style={styles.titleFooter}>Calle 7 #90-76</Text>
+          
         </View>
       </View>
     </View>
@@ -60,7 +81,7 @@ const styles = StyleSheet.create({
     height: 68,
   },
 
-
+//card
   container: {
     marginTop: 1,
     // justifyContent: 'center',
@@ -71,13 +92,13 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     width: '80%',
     backgroundColor: '#fff',
-    padding: 20,
+    padding: 25,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 1,
-    marginTop:30,
+    marginTop:33,
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft:35
@@ -92,11 +113,11 @@ const styles = StyleSheet.create({
     padding: 2,
     
   },
-  titleIni: {
+  titleInicard: {
     fontSize: 24,
     fontWeight: 'bold',
     letterSpacing: 1,
-    color: '#333',
+    color: '#9E9E9E',
     marginBottom: 20,
     textTransform:'uppercase'
   },
@@ -104,19 +125,66 @@ const styles = StyleSheet.create({
     fontSize: 20,
     padding: 10,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: 'black',
     marginBottom: 20,
   },
   button: {
-    backgroundColor: 'red',
+    backgroundColor: 'black',
     color: 'red',
     padding: 10,
     fontSize: 20,
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
   },
   link: {
     fontSize: 16,
     color: '#9E9E9E',
     marginTop: 15,
   },
+
+  //footer
+
+  footer: {
+    backgroundColor: 'black',
+    color: 'white',
+    borderColor: 'red',
+    margin:15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius:5,
+    marginEnd:'auto',
+    marginLeft:'auto',
+    flexDirection: 'row',
+
+  },
+  containerFooter: {
+    width: '80%',
+    margin: 50,
+    padding: 20,
+  },
+  titleFooter: {
+    fontSize: 17,
+    textAlign: 'center',
+    height: 30,
+    marginBottom: -5,
+    color:'white'
+  },
+  address: {
+    fontSize: 17,
+    width: '60%',
+    height: 24.5,
+    margin: 16,
+    textAlign: 'center',
+    padding: 10,
+    backgroundColor:'white'
+  },
+  socialIcons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '2%',
+    //margin: 2,
+    padding: 20,
+    backgroundColor:'white',
+    marginRight:200
+  },
+ 
 });
