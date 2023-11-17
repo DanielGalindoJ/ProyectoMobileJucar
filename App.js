@@ -1,7 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image,TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, Image,TextInput, Button,Pressable  } from 'react-native';
+import { useState } from "react";
+import menu from './src/components/menu';
 
 export default function App() {
+  const [Usuario, setUsuario] = useState('');
+  const [Contraseña, setContraseña] = useState('')
+  const [modalVisble, setModalVisible] = useState(false)
+      console.log(modalVisble)  
   return (
     <View style={styles.container}>
       <View style={styles.navbar}>
@@ -27,7 +33,15 @@ export default function App() {
             placeholder="Contraseña"
             secureTextEntry={true}
           />
-          <Button title="INGRESAR" style={styles.button} />
+          
+          <Pressable onPress={()=> setModalVisible(true)} 
+            style={styles.button}>
+              <Text style={styles.buttontxt}> INGRESAR</Text>
+          </Pressable>
+          <menu
+             modalVisble ={modalVisble}
+            setModalVisible
+          />
           <Text style={styles.link}>Olvidaste la Contraseña?</Text>
           <Text style={styles.link}>Aun no tienes perfil?</Text>
         </View>
@@ -129,11 +143,20 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   button: {
-    backgroundColor: 'black',
-    color: 'red',
+    
+    backgroundColor: '#f80759',
     padding: 10,
+    marginTop: 10,
+    marginLeft: 30,
+    marginRight: 30,
+    borderRadius: 10,
+  },
+  buttontxt:{
+    textAlign: 'center',
+    color: '#fff',
     fontSize: 20,
-    //fontWeight: 'bold',
+    
+    textTransform: 'uppercase',
   },
   link: {
     fontSize: 16,
