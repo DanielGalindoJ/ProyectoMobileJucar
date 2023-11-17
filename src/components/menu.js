@@ -1,14 +1,16 @@
 import { StyleSheet, Text, View, Image,TextInput, Button,Pressable  } from 'react-native';
 import { useState } from 'react';
 
+
 const menu =(modalVisible, setModalVisible) =>{
+  
     return(
         <Modal animationType="slide" visible={modalVisible}>
             <View style={styles.contenido}>
                 <ScrollView>
                     <View style={styles.navbar}>
                     <Image
-                          source={require('')}
+                          source={require('./assets/jucar2.jpg')}
                           style={styles.logo}
                         />
                         <Text style={styles.title}>AUTOPARTES JUCAR SAS</Text>
@@ -23,29 +25,16 @@ const menu =(modalVisible, setModalVisible) =>{
                             </View>
                             </View>
                         </View>
-                        <View style={styles.container}>
-                            <ul style={styles.navTabs}>
-                            <li style={styles.navTab}>
-                                <a style={styles.navLink} href="USUARIOS.html">
-                                <Image
-                                    source={require('')}
-                                    style={styles.navLinkImage}
-                                />
-                                <Text style={styles.navLinkText}>Administrador</Text>
-                                </a>
-                            </li>
-                            <li style={styles.navTab}>
-                                <a style={styles.navLink} href="login.html">
-                                <Image
-                                    source={require('')}
-                                    style={styles.navLinkImage}
-                                />
-                                <Text style={styles.navLinkText}>Volver</Text>
-                                </a>
-                            </li>
-                            </ul>
-                        </View>
                     </View>;
+                    <View style={{ flexDirection: 'row' }}>
+                        
+                        <View style={{ flex: 1 }}>
+                          <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Menu 1</Text>
+                        </View>
+                        <Pressable>
+                        
+                        </Pressable>
+                      </View>
                 </ScrollView>
             </View>
         </Modal>

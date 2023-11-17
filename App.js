@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image,TextInput, Button,Pressable  } from 'react-native';
+import { StyleSheet, Text, View, Image,TextInput, Button,Pressable,menu  } from 'react-native';
 import { useState } from "react";
-import menu from './src/components/menu';
+import Menu from './src/components/Menu';
 
 export default function App() {
   const [Usuario, setUsuario] = useState('');
@@ -12,7 +12,7 @@ export default function App() {
     <View style={styles.container}>
       <View style={styles.navbar}>
         <Image
-          source={require('./assets/zyro-image.jpg')}
+          source={require('./assets/jucar.jpg')}
           style={styles.logo}
         />
         <Text style={styles.title}>AUTOPARTES JUCAR SAS</Text>
@@ -34,13 +34,13 @@ export default function App() {
             secureTextEntry={true}
           />
           
-          <Pressable onPress={()=> setModalVisible(true)} 
+          <Pressable onPress={()=> setModalVisible(!modalVisble)} 
             style={styles.button}>
               <Text style={styles.buttontxt}> INGRESAR</Text>
           </Pressable>
-          <menu
-             modalVisble ={modalVisble}
-            setModalVisible
+          <menu 
+            modalVisble={modalVisble}
+            setModalVisible={setModalVisible}
           />
           <Text style={styles.link}>Olvidaste la Contraseña?</Text>
           <Text style={styles.link}>Aun no tienes perfil?</Text>
