@@ -1,7 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image,TextInput, Button,Pressable,menu  } from 'react-native';
+import { StyleSheet, Text, View, Image,TextInput, Button,Pressable,StatusBar  } from 'react-native';
 import { useState } from "react";
-import Menu from './src/components/Menu';
+import Menu from '../../src/components/Menu';
+// import logo from './assets/jucar'
+import { StatusBar } from 'expo-status-bar';
+import { PaperProvider } from 'react-native-paper';
+import { RootNavigation } from './src/components/navigation';
+
+
 
 export default function App() {
   const [Usuario, setUsuario] = useState('');
@@ -9,52 +15,50 @@ export default function App() {
   const [modalVisble, setModalVisible] = useState(false)
       console.log(modalVisble)  
   return (
-    <View style={styles.container}>
-      <View style={styles.navbar}>
-        <Image
-          source={require('./assets/jucar.jpg')}
-          style={styles.logo}
-        />
-        <Text style={styles.title}>AUTOPARTES JUCAR SAS</Text>
-      </View>
-
-      <View style={styles.card}>
-        <View style={styles.form}>
+    <PaperProvider>
+      <View style={styles.container}>
+        <View style={styles.navbar}>
           <Image
-            source={{
-              uri: 'https://us.123rf.com/450wm/rigsby8131/rigsby81311704/rigsby8131170400147/75488593-tuercas-pernos-y-arandelas-en-un-fondo-de-acero.jpg?ver=6',
-            }}
-            style={styles.image}
-          />
-          <Text style={styles.titleInicard}>Iniciar sesión </Text>
-          <TextInput style={styles.input} placeholder="Usuario" />
-          <TextInput
-            style={styles.input}
-            placeholder="Contraseña"
-            secureTextEntry={true}
-          />
-          
-          <Pressable onPress={()=> setModalVisible(!modalVisble)} 
-            style={styles.button}>
-              <Text style={styles.buttontxt}> INGRESAR</Text>
-          </Pressable>
-          <menu 
-            modalVisble={modalVisble}
-            setModalVisible={setModalVisible}
-          />
-          <Text style={styles.link}>Olvidaste la Contraseña?</Text>
-          <Text style={styles.link}>Aun no tienes perfil?</Text>
+          source={require('../../assets/jucar.jpg')}            style={styles.logo} />
+          <Text style={styles.title}>AUTOPARTES JUCAR SAS</Text>
         </View>
-      </View>
 
-      <View style={styles.footer}>
-        <View style={styles.containerFooter}>
-          <Text style={styles.titleFooter}>Derechos reservados Jucar S.A.S</Text>
-          <Text style={styles.titleFooter}>Calle 7 #90-76</Text>
-          
+        <View style={styles.card}>
+          <View style={styles.form}>
+            <Image
+              source={{
+                uri: 'https://us.123rf.com/450wm/rigsby8131/rigsby81311704/rigsby8131170400147/75488593-tuercas-pernos-y-arandelas-en-un-fondo-de-acero.jpg?ver=6',
+              }}
+              style={styles.image} />
+            <Text style={styles.titleInicard}>Iniciar sesión </Text>
+            <TextInput style={styles.input} placeholder="Usuario" />
+            <TextInput
+              style={styles.input}
+              placeholder="Contraseña"
+              secureTextEntry={true} />
+
+            <Pressable onPress={() => setModalVisible(!modalVisble)}
+              style={styles.button}>
+              <Text style={styles.buttontxt}> INGRESAR</Text>
+            </Pressable>
+            <menu
+              modalVisble={modalVisble}
+              setModalVisible={setModalVisible} />
+            <Text style={styles.link}>Olvidaste la Contraseña?</Text>
+            <Text style={styles.link}>Aun no tienes perfil?</Text>
+          </View>
+        </View>
+
+        <View style={styles.footer}>
+          <View style={styles.containerFooter}>
+            <Text style={styles.titleFooter}>Derechos reservados Jucar S.A.S</Text>
+            <Text style={styles.titleFooter}>Calle 7 #90-76</Text>
+
+          </View>
         </View>
       </View>
-    </View>
+    </PaperProvider>
+    
 
     
   );
