@@ -35,6 +35,38 @@ const menu =(modalVisible, setModalVisible) =>{
                         
                         </Pressable>
                       </View>
+
+                      //div menu
+                      <View style={styles.container}>
+                        <View style={styles.section}>
+                          <View style={styles.cardContainer}>
+                            <div style={styles.card}>
+                              <Image source={require('./assets/cli.png')} style={styles.image} />
+                              <Text style={styles.cardText}>CLIENTES</Text>
+                            </div>
+                            <div style={styles.card}>
+                              <Image source={require('./assets/produ.png')} style={styles.image} />
+                              <Text style={styles.cardText}>PRODUCTOS</Text>
+                            </div>
+                            <div style={styles.card}>
+                              <Image source={require('./assets/pro.png')} style={styles.image} />
+                              <Text style={styles.cardText}>PROVEEDORES</Text>
+                            </div>
+                            <div style={styles.card}>
+                              <Image source={require('./assets/PEDI.png')} style={styles.image} />
+                              <Text style={styles.cardText}>PEDIDOS</Text>
+                            </div>
+                            <div style={styles.card}>
+                              <Image source={require('./assets/VENTAS.png')} style={styles.image} />
+                              <Text style={styles.cardText}>FACTURAS</Text>
+                            </div>
+                            <div style={styles.card}>
+                              <Image source={require('./assets/png-clipart-referral-marketing-organization-management-employee-referral-business-face-people-removebg-preview.png')} style={styles.image} />
+                              <Text style={styles.cardText}>EMPLEADOS</Text>
+                            </div>
+                          </View>
+                        </View>
+                      </View>
                 </ScrollView>
             </View>
         </Modal>
@@ -91,9 +123,7 @@ const styles = StyleSheet.create({
       col: {
         textAlign: 'center',
       },
-      title: {
-        fontFamily: 'Aclonica, sans-serif',
-      },
+     
       navTabs: {
         paddingTop: 0,
         marginTop: -54,
@@ -114,9 +144,46 @@ const styles = StyleSheet.create({
       },
       navLinkText: {
         fontSize: 18,
-        fontFamily: 'Acme, sans-serif',
         color: '#333',
       },
+      //div menu
+      container: {
+        marginLeft: -20,
+        padding: 0,
+        backgroundColor: '#f8f9fa',
+      },
+      section: {
+        backgroundColor: '#f8f9fa',
+        padding: 0,
+        height: 300,
+        width: 1000,
+      },
+      cardContainer: {
+        flexDirection: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+        padding: 0,
+      },
+      card: {
+        width: 213.3,
+        padding: 3,
+        height: 286,
+        margin: 27,
+        backgroundColor: '#ffffff',
+      },
+      image: {
+        width: 206,
+        height: 207,
+        margin: -4,
+        padding: 6,
+      },
+      cardText: {
+        fontSize: 20,
+        textAlign: 'center',
+        color: '#198754',
+        padding: 10,
+      },
+
 });
 
 export default menu
