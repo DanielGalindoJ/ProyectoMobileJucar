@@ -1,7 +1,7 @@
-import { View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TabNavigation } from "./TabNavigation/TabNavigation";
+import { screensName } from "../../utils";
 
 const stack = createNativeStackNavigation ()
 

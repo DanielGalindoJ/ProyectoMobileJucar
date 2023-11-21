@@ -1,5 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {AuthScreen} from '../../screens/Auth/AuthScreen'
+import { screensName } from "../../../utils";
+import { HomeStack, wishlistScreen } from "../stacks";
+
 
 const Tab = createBottomTabNavigator();
 
@@ -8,23 +11,23 @@ export function TabNavigation(){
         
         <TabNavigation>
             <Tab.Screen>
-            name = "home"
-            component ={AuthScreen}
+            name = {screensName.home.root}
+            component ={HomeStack}
             options ={{title : 'Inicio'}}
         </Tab.Screen>
 
-        // Tercer Menu ? Que poner 
-        {/* <Tab.Screen>
-            name = "home"
+        
+        <Tab.Screen>
+            name = {screensName.wishlist.root}
             component ={AuthScreen}
-            options ={{title : 'Inicio'}}
-         </Tab.Screen> */}
+            options ={{title : 'list {deseos'}}
+         </Tab.Screen> 
 
         <Tab.Screen>
-            name = "account"
+            name = {screensName.account.root}
             component ={AuthScreen}
-            options ={{title : 'Cuenta'}}
-          </Tab.Screen>
+            options ={{title : ' My Cuenta'}}
+        </Tab.Screen>
         </TabNavigation>
     )
 }
