@@ -1,9 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image,TextInput, Button,Pressable,Alert } from 'react-native';
+
+import { StyleSheet, Text, View, Image,TextInput, Button,Pressable,Alert,StatusBar } from 'react-native';
 import { useState } from "react";
 import Menu from '../../src/components/Menu';
 // import logo from './assets/jucar'
-import { StatusBar } from 'expo-status-bar';
+//import { StatusBar } from 'expo-status-bar';
 import { PaperProvider } from 'react-native-paper';
 import { RootNavigation } from './src/components/navigation';
 
@@ -35,7 +35,7 @@ export default function App() {
       <View style={styles.container}>
         <View style={styles.navbar}>
           <Image
-          source={require('../../assets/jucar.jpg')}            style={styles.logo} />
+          source={require('./assets/jucar.jpg')}            style={styles.logo} />
           <Text style={styles.title}>AUTOPARTES JUCAR SAS</Text>
         </View>
 

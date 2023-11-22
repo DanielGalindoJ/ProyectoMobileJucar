@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image,TextInput, Button,Pressable  } from 'react-native';
+import { StyleSheet, Text, View, Image,TextInput, Button,Pressable, ScrollView,Modal  } from 'react-native';
 import { useState } from 'react';
 
 
@@ -10,7 +10,7 @@ const menu =(modalVisible, setModalVisible) =>{
                 <ScrollView>
                     <View style={styles.navbar}>
                     <Image
-                          source={require('./assets/jucar2.jpg')}
+                          source={require('../../assets/jucar.jpg')}
                           style={styles.logo}
                         />
                         <Text style={styles.title}>AUTOPARTES JUCAR SAS</Text>
@@ -40,30 +40,36 @@ const menu =(modalVisible, setModalVisible) =>{
                       <View style={styles.container}>
                         <View style={styles.section}>
                           <View style={styles.cardContainer}>
-                            <div style={styles.card}>
-                              <Image source={require('./assets/cli.png')} style={styles.image} />
+                            <View style={styles.card}>
+                              <Image source={require('../../assets/cli.png')} style={styles.image} />
                               <Text style={styles.cardText}>CLIENTES</Text>
-                            </div>
-                            <div style={styles.card}>
-                              <Image source={require('./assets/produ.png')} style={styles.image} />
+                            </View>
+
+                            <View style={styles.card}>
+                              <Image source={require('../../assets/produ.png')} style={styles.image} />
                               <Text style={styles.cardText}>PRODUCTOS</Text>
-                            </div>
-                            <div style={styles.card}>
-                              <Image source={require('./assets/pro.png')} style={styles.image} />
+                            </View>
+
+                            <View style={styles.card}>
+                              <Image source={require('../../assets/pro.png')} style={styles.image} />
                               <Text style={styles.cardText}>PROVEEDORES</Text>
-                            </div>
-                            <div style={styles.card}>
-                              <Image source={require('./assets/PEDI.png')} style={styles.image} />
+                            </View>
+
+                            <View style={styles.card}>
+                              <Image source={require('../../assets/PEDI.png')} style={styles.image} />
                               <Text style={styles.cardText}>PEDIDOS</Text>
-                            </div>
-                            <div style={styles.card}>
-                              <Image source={require('./assets/VENTAS.png')} style={styles.image} />
+                            </View>
+
+                            <View style={styles.card}>
+                              <Image source={require('../../assets/VENTAS.png')} style={styles.image} />
                               <Text style={styles.cardText}>FACTURAS</Text>
-                            </div>
-                            <div style={styles.card}>
-                              <Image source={require('./assets/png-clipart-referral-marketing-organization-management-employee-referral-business-face-people-removebg-preview.png')} style={styles.image} />
+                            </View>
+
+                            <View style={styles.card}>
+                              <Image source={require('../../assets/png-clipart-referral-marketing-organization-management-employee-referral-business-face-people-removebg-preview.png')} style={styles.image} />
                               <Text style={styles.cardText}>EMPLEADOS</Text>
-                            </div>
+                            </View>
+
                           </View>
                         </View>
                       </View>
@@ -156,7 +162,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#f8f9fa',
         padding: 0,
         height: 300,
-        width: 1000,
+        width: 10,
       },
       cardContainer: {
         flexDirection: 'flex',
@@ -165,16 +171,16 @@ const styles = StyleSheet.create({
         padding: 0,
       },
       card: {
-        width: 213.3,
+        width: 21,
         padding: 3,
-        height: 286,
+        height: 28,
         margin: 27,
         backgroundColor: '#ffffff',
       },
       image: {
-        width: 206,
-        height: 207,
-        margin: -4,
+        width: 26,
+        height: 27,
+        margin: 29,
         padding: 6,
       },
       cardText: {
