@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image,TextInput, Button,Pressable, ScrollView,Modal  } from 'react-native';
+import { StyleSheet, Text, View, Image,TextInput, Button,Pressable, ScrollView,Modal,  } from 'react-native';
 import { useState } from 'react';
 
 
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         alignItems: 'flex-start',
         padding: 30,
-        fontWeight:500,
+        fontWeight:50,
         
         marginTop:1
       },
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
         marginLeft: 128,
         marginRight: -21,
         marginBottom: -19,
-        width: 269.906,
+        width: 26,
         height: 68,
       },
 
@@ -154,14 +154,14 @@ const styles = StyleSheet.create({
       },
       //div menu
       container: {
-        marginLeft: -20,
+        marginLeft: 20,
         padding: 0,
         backgroundColor: '#f8f9fa',
       },
       section: {
         backgroundColor: '#f8f9fa',
         padding: 0,
-        height: 300,
+        height: 30,
         width: 10,
       },
       cardContainer: {
