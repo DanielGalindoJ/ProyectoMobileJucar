@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image,TextInput, Button,Pressable,StatusBar  } from 'react-native';
+import { StyleSheet, Text, View, Image,TextInput, Button,Pressable,Alert } from 'react-native';
 import { useState } from "react";
 import Menu from '../../src/components/Menu';
 // import logo from './assets/jucar'
@@ -14,6 +14,22 @@ export default function App() {
   const [Contraseña, setContraseña] = useState('')
   const [modalVisble, setModalVisible] = useState(false)
       console.log(modalVisble)  
+
+      //validacion campos
+  const validacionCampos =()=>{
+    if ([Usuario, Contraseña].includes('')){
+      Alert.alert(
+        'Error', //Tittulo alerta
+        'Todos los campos son obligatorios'//descripocion 
+      )
+      return
+    }
+    const Usu ={
+      Usuario,
+      Contraseña
+    }
+    console.log(Usu)
+  }    
   return (
     <PaperProvider>
       <View style={styles.container}>
@@ -23,6 +39,7 @@ export default function App() {
           <Text style={styles.title}>AUTOPARTES JUCAR SAS</Text>
         </View>
 
+        //card
         <View style={styles.card}>
           <View style={styles.form}>
             <Image
@@ -31,15 +48,22 @@ export default function App() {
               }}
               style={styles.image} />
             <Text style={styles.titleInicard}>Iniciar sesión </Text>
-            <TextInput style={styles.input} placeholder="Usuario" />
+            <TextInput style={styles.input} placeholder="Usuario"
+            value ={Usuario}
+            onChangeText={setUsuario} />
             <TextInput
               style={styles.input}
               placeholder="Contraseña"
-              secureTextEntry={true} />
+              secureTextEntry={true}
+              value={Contraseña}
+              onChange={setContraseña} />
 
             <Pressable onPress={() => setModalVisible(!modalVisble)}
               style={styles.button}>
-              <Text style={styles.buttontxt}> INGRESAR</Text>
+              <Text style={styles.buttontxt} 
+              onPress={validacionCampos}
+              > INGRESAR</Text>
+              
             </Pressable>
             <menu
               modalVisble={modalVisble}
