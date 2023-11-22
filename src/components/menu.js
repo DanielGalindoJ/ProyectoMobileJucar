@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Image,TextInput, Button,Pressable, ScrollView,M
 import { useState } from 'react';
 
 
-const menu =(modalVisible, setModalVisible) =>{
+const MENU =({modalVisible, setModalVisible}) =>{
   
     return(
         <Modal animationType="slide" visible={modalVisible}>
@@ -192,4 +192,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default menu
+export default MENU

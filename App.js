@@ -67,7 +67,8 @@ export default function App() {
             </Pressable>
             <menu
               modalVisble={modalVisble}
-              setModalVisible={setModalVisible} />
+              setModalVisible={setModalVisible}
+               />
             <Text style={styles.link}>Olvidaste la Contraseña?</Text>
             <Text style={styles.link}>Aun no tienes perfil?</Text>
           </View>
