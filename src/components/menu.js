@@ -8,6 +8,7 @@ const MENU =({modalVisible, setModalVisible}) =>{
         <Modal animationType="slide" visible={modalVisible}>
             <View style={styles.contenido}>
                 <ScrollView>
+                  //encabezado logo 
                     <View style={styles.navbar}>
                     <Image
                           source={require('../../assets/jucar.jpg')}
