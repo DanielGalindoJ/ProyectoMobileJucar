@@ -68,12 +68,12 @@ const FormAgregarProduct = () => {
 
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.backButton}>
-            <Image source={require('./arrow-left-circle-fill.svg')} style={styles.backButtonImage} />
+            <Image source={require('../../assets/flechatras.png')} style={styles.backButtonImage} />
             <Text style={styles.backButtonText}>VOLVER</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.saveButton}>
-            <Image source={require('./download.svg')} style={styles.saveButtonImage} />
+            <Image source={require('../../assets/btnGuardar.png')} style={styles.saveButtonImage} />
             <Text style={styles.saveButtonText}>GUARDAR</Text>
           </TouchableOpacity>
         </View>
