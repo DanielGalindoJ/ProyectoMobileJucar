@@ -1,10 +1,47 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TextInput, Button, Pressable, ScrollView, Modal } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, Button, Pressable, ScrollView, Modal, Alert } from 'react-native';
 import { useState } from 'react';
 
 const FormAgregarProduct = () => {
+const [categoría, setCategoria] = useState('');
+const [nombre, setNombre] = useState('');
+const [zonaVehiculo, setZonaVehiculo] = useState('');
+const [estado, setEstado] = useState ('');
+const [peso, setPeso ] = useState ('');
+const [ alto, setAlto] = useState('');
+const [largo, setLargo] = useState('');
+const [precio, setPrecio] = useState ('');
+      //validacion campos
+  const validacionCampos =()=>{
+    if ([categoría,
+        nombre,
+        zonaVehiculo,
+        estado,
+        peso,
+        alto,
+        largo,
+        precio
+        ].includes('')){
+      Alert.alert(
+        'Error', //Tittulo alerta
+        'Todos los campos son obligatorios'//descripocion 
+      )
+      return
+    }
+    const formuProducts ={
+        categoría,
+        nombre,
+        zonaVehiculo,
+        estado,
+        peso,
+        alto,
+        largo,
+        precio
+    }
+    console.log(formuProducts)
+  }    
+
     return (
-     
      <View style={Style.contenido}>
         <ScrollView>
         //encabezado logo 
@@ -23,47 +60,75 @@ const FormAgregarProduct = () => {
       <View style={styles.formContainer}>
         <View style={styles.formSection}>
           <Text style={styles.formLabel}>CATEGORÍA</Text>
-          <TextInput style={styles.formInput} placeholder="Digite la categoría del producto" />
+          <TextInput style={styles.formInput} placeholder="Digite la categoría del producto" 
+          value={categoría}
+          onChange={setCategoria}
+          onPress={validacionCampos}
+
+          />
         </View>
 
         <View style={styles.formSection}>
           <Text style={styles.formLabel}>NOMBRES</Text>
-          <TextInput style={styles.formInput} placeholder="Digite el nombre del producto" />
-        </View>
-
-        <View style={styles.formSection}>
-          <Text style={styles.formLabel}>FUNCIÓN</Text>
-          <TextInput style={styles.formInput} placeholder="Digite la medida del producto" />
+          <TextInput style={styles.formInput} placeholder="Digite el nombre del producto"
+          value={nombre}
+          onChange={setNombre}
+          onPress={validacionCampos}
+          />
         </View>
 
         <View style={styles.formSection}>
           <Text style={styles.formLabel}>ZONA VEHÍCULO</Text>
-          <TextInput style={styles.formInput} placeholder="Digite el precio unitario del producto" />
+          <TextInput style={styles.formInput} placeholder="Digite el precio unitario del producto"
+          value={zonaVehiculo}
+          onChange={setZonaVehiculo}
+          onPress={validacionCampos}
+          />
         </View>
 
         <View style={styles.formSection}>
           <Text style={styles.formLabel}>ESTADO</Text>
-          <TextInput style={styles.formInput} placeholder="Digite las existencias iniciales del producto" />
+          <TextInput style={styles.formInput} placeholder="Digite las existencias iniciales del producto" 
+          value={estado}
+          onChange={setEstado}
+         // onPress={validacionCampos}
+          />
         </View>
 
         <View style={styles.formSection}>
           <Text style={styles.formLabel}>PESO KG</Text>
-          <TextInput style={styles.formInput} placeholder="Digite el peso del producto" />
+          <TextInput style={styles.formInput} placeholder="Digite el peso del producto" 
+          value={peso}
+          onChange={setPeso}
+          onPress={validacionCampos}
+          />
         </View>
 
         <View style={styles.formSection}>
           <Text style={styles.formLabel}>ALTO CM</Text>
-          <TextInput style={styles.formInput} placeholder="Digite el alto del producto" />
+          <TextInput style={styles.formInput} placeholder="Digite el alto del producto"
+          value={alto}
+          onChange={setAlto}
+          onPress={validacionCampos}
+          />
         </View>
 
         <View style={styles.formSection}>
           <Text style={styles.formLabel}>LARGO CM</Text>
-          <TextInput style={styles.formInput} placeholder="Digite el largo del producto" />
+          <TextInput style={styles.formInput} placeholder="Digite el largo del producto" 
+          value={largo}
+          onChange={setLargo}
+          onPress={validacionCampos}
+          />
         </View>
 
         <View style={styles.formSection}>
           <Text style={styles.formLabel}>PRECIO</Text>
-          <TextInput style={styles.formInput} placeholder="Digite el precio del producto" />
+          <TextInput style={styles.formInput} placeholder="Digite el precio del producto"
+          value={precio}
+          onChange={setPrecio}
+          onPress={validacionCampos}
+          />
         </View>
 
         <View style={styles.buttonContainer}>
