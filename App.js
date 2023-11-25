@@ -51,13 +51,16 @@ export default function App() {
             <TextInput style={styles.input} placeholder="Usuario"
             value ={Usuario}
             onChangeText={setUsuario} />
+
             <TextInput
               style={styles.input}
               placeholder="Contraseña"
               secureTextEntry={true}
               value={Contraseña}
-              onChange={setContraseña} />
+              onChange={setContraseña}
+               />
 
+              //boton INGRESAR
             <Pressable onPress={() => setModalVisible(!modalVisble)}
               style={styles.button}>
               <Text style={styles.buttontxt} 
@@ -74,6 +77,7 @@ export default function App() {
           </View>
         </View>
 
+              //footer (pie de pagina)
         <View style={styles.footer}>
           <View style={styles.containerFooter}>
             <Text style={styles.titleFooter}>Derechos reservados Jucar S.A.S</Text>
