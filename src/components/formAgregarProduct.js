@@ -3,14 +3,14 @@ import { StyleSheet, Text, View, Image, TextInput, Button, Pressable, ScrollView
 import { useState } from 'react';
 
 const FormAgregarProduct = () => {
-const [categoría, setCategoria] = useState('');
-const [nombre, setNombre] = useState('');
-const [zonaVehiculo, setZonaVehiculo] = useState('');
-const [estado, setEstado] = useState ('');
-const [peso, setPeso ] = useState ('');
-const [ alto, setAlto] = useState('');
-const [largo, setLargo] = useState('');
-const [precio, setPrecio] = useState ('');
+  const [categoría, setCategoria] = useState('');
+  const [nombre, setNombre] = useState('');
+  const [zonaVehiculo, setZonaVehiculo] = useState('');
+  const [estado, setEstado] = useState ('');
+  const [peso, setPeso ] = useState ('');
+  const [ alto, setAlto] = useState('');
+  const [largo, setLargo] = useState('');
+  const [precio, setPrecio] = useState ('');
       //validacion campos
   const validacionCampos =()=>{
     if ([categoría,
@@ -149,10 +149,41 @@ const [precio, setPrecio] = useState ('');
     );
 };
 const styles = StyleSheet.create({
-    contenido:{
-        backgroundColor: '#6D28D9',
-        flex: 1
+    
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+     
     },
+    navbar: {
+      backgroundColor: '#f80759',
+      color: '#fff',
+      borderColor: '#03a9f4',
+      flexDirection: 'row',
+      justifyContent: 'space-evenly',
+      alignItems: 'flex-start',
+      padding: 30,
+      fontWeight:500,
+      
+      marginTop:1
+    },
+    logo: {
+      width: 107,
+      height: 57,
+      resizeMode: 'contain',
+      marginLeft:50
+    },
+    title: {
+      fontSize: 18,
+      color: '#fff',
+      fontWeight: 'bold',
+      marginLeft: 128,
+      marginRight: -21,
+      marginBottom: -19,
+      width: 269.906,
+      height: 68,
+    },
+
     header: {
         backgroundColor: '#f2f2f2',
         padding: 20,
