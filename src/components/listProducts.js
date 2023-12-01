@@ -1,10 +1,12 @@
 
-import { StyleSheet, Text, View, Image,TextInput, Button,Pressable,Alert,StatusBar, Table } from 'react-native';
+import { StyleSheet, Text, View, Image,TextInput, Button,Pressable,Alert,StatusBar, Table, Select } from 'react-native';
 import { useState } from "react";
 import { ScrollView } from 'react-native-web';
+import axios from 'axios';
+import { Modal } from 'react-native-paper';
 
-
-const listProducts = (autopat) => {
+//falta
+const listProducts = (autopat, isVisible) => {
     const [categoría, setCategoria] = useState('');
     const [nombre, setNombre] = useState('');
     const [zonaVehiculo, setZonaVehiculo] = useState('');
@@ -14,8 +16,143 @@ const listProducts = (autopat) => {
     const [largo, setLargo] = useState('');
     const [precio, setPrecio] = useState ('');
 
+    const [operation,setOpertaion]=useState([1])
+  const [idToEdit, SetidToEdit] = useState(null);
+
     const [autoparts,setAutoparts] = useState([])
-    const url = 'https://localhost:7028/api/autoparts/'; // https://localhost:7028/api/autoparts 
+    const url = 'https://localhost:7028/api/autoparts/'; // https://localhost:7028/api/autoparts   const URL = `${url}/${autopartID}`; // Autoparte Por Id:
+    const URL = `${url}/${autopartID}`; // Autoparte Por Id:
+
+
+    useEffect(() => {
+        getAutoparts();
+        getSubCategory();
+      }, );
+
+      const getAutoparts = async () => {
+        const respuesta = await axios.get(url);
+        setAutoparts(respuesta.data);
+        const openModal = (op,nombre, alto,estado, peso, largo,zonaVehiculo,precio,autopartID,   subCategoryId) => {
+            setAutopartId('')
+            setNombre('')
+            setAlto('')
+            setEstado('')
+            setPeso('')
+            setLargo('')
+            setZonaVehiculo('')
+            setPrecio('')
+            setOpertaion(op);
+        
+        
+            if (op === 1) {
+              setTitle('Registrar Autoparte');
+              setNombre('')
+              setPrecio('')
+
+              setSubCategoryId('')
+            } else if (op === 2) {
+              setTitle('Editar Autoparte');
+              setAutopartId(autopartID)
+              setNombre(nombre);
+              setLargo(largo)
+              setPrecio(precio)
+              setPeso(peso)
+              setEstado(estado)
+              setAlto(alto)
+              setZonaVehiculo(zonaVehiculo)
+              setSubCategoryId(subCategoryId)
+              SetidToEdit(autopartID);
+        
+            }
+            window.setTimeout(function () {
+              document.getElementById('name').focus();
+            }, 500);
+          };
+      };
+      if (operation === 1) {
+        parametros = {
+          nombre: nombre,
+          alto:alto,
+          largo: largo,
+          peso:peso,
+          precio: precio,
+          zonaVehiculo: zonaVehiculo,
+          estado: estado,
+          subCategoryId: subCategoryId
+        };
+        metodo = 'POST';
+      } else {
+        parametros = {
+            nombre: nombre,
+            alto:alto,
+            largo: largo,
+            peso:peso,
+            precio: precio,
+            zonaVehiculo: zonaVehiculo,
+            estado: estado,
+            subCategoryId: subCategoryId
+        };
+        metodo = 'PUT';
+      }
+      enviarSolicitud(metodo, parametros,autopartID);
+      const enviarSolicitud = async (metodo,parametros, autopartID) => {
+        if (metodo === "POST") {
+          axios
+            .post(`${URL}`, parametros)
+            .then(function (respuesta) {
+              show_alerta("success", "Autoparte creado");
+              document.getElementById("btnCerrar").click();
+              getAutoparts();
+            })
+            .catch(function (error) {
+              show_alerta("error", "Error de solucitud");
+              console.log(error);
+            });
+        } else if (metodo === "PUT") {
+          axios
+            .put(`${URL}${autopartID}`, parametros)
+            .then(function (respuesta) {
+              console.log("Solicitud PUT exitosa:", respuesta.data);
+              // var tipo = respuesta.data[0];
+              // var msj = respuesta.data[1];
+              show_alerta("success", "autoparte editado con exito");
+              document.getElementById("btnCerrar").click();
+              getAutoparts();
+            })
+            .catch(function (error) {
+              show_alerta("error", "El autoparte no se edito");
+              console.log(error);
+            });
+        }
+      };
+    
+      const deleteAutopart = (autopartID, nombre) => {
+        const MySwal = withReactContent(Swal);
+        MySwal.fire({
+          title: "¿Seguro quieres eliminar el autoparte " + nombre + "?",
+          icon: "question",
+          text: "No se podra dar marcha atras",
+          showCancelButton: true,
+          confirmButtonText: "Si, eliminar",
+          cancelButtonText: "Cancelar",
+        }).then(async (result) => {
+          console.log(autopartID);
+          if (result.isConfirmed) {
+            try {
+              console.log(`${URL}/${autopartID}`);
+              await axios.delete(`${URL}${autopartID}`);
+              show_alerta("success", "Usuario eliminado exitosamente");
+              getAutoparts();
+            } catch (error) {
+              console.log(`${URL}/${autopartID}`);
+              show_alerta("error", "Error al eliminar el producto");
+              console.error(error);
+            }
+          } else {
+            show_alerta("info", "El producto no fue eliminado");
+          }
+        }
+        )};
 
     return(
         <View style={styles.container}>
@@ -95,7 +232,7 @@ const listProducts = (autopat) => {
                             </Table.Cell>
 
                             <Table.Cell>
-                                <Text style={styles.bodyText}>{autopart.vehicleZone}</Text>
+                                <Text style={styles.bodyText}>{autopart.zonaVehiculo}</Text>
                             </Table.Cell>
 
                             <Table.Cell>
@@ -104,9 +241,16 @@ const listProducts = (autopat) => {
 
                             <Table.Cell>
                                 <Button
+                                    title='Añadir'
+                                    onPress={()=>
+                                        openModal(1)
+                                    }
+                                />
+
+                                <Button
                                 title="Editar"
                                 onPress={() =>
-                                    openModal(2, autopart.nombre, autopart.ancho, autopart.largo, autopart.peso, autopart.vehicleZone, autopart.state, )
+                                    openModal(2, nombre.autopart, autopart.ancho, autopart.largo, autopart.peso, autopart.vehicleZone, autopart.state, )
                                 }
                                 />
                                 <Button title="Eliminar" onPress={() => deleteAutopart(autopart.autopartID, autopart.nombre)} />
@@ -114,9 +258,76 @@ const listProducts = (autopat) => {
                             </Table.Row>
                         ))}
                         </Table.Body>
-                    </Table>
+                    </Table>             
                 </View>
             </ScrollView>
+            <Modal visible={isVisible} animationType="slide">
+                <View style={{ flex: 1 }}>
+                    <View style={{ backgroundColor: '#fff', padding: 20 }}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{title}</Text>
+                    <Input
+                        style={{ marginVertical: 10 }}
+                        placeholder="Nombre Autoparte"
+                        value={nombre}
+                        onChangeText={setNombre}
+                    />
+                    <Input
+                        style={{ marginVertical: 10 }}
+                        placeholder="alto"
+                        keyboardType="numeric"
+                        value={alto}
+                        onChangeText={setAlto}
+                    />
+                    <Input
+                        style={{ marginVertical: 10 }}
+                        placeholder="peso"
+                        keyboardType="numeric"
+                        value={peso}
+                        onChangeText={setPeso}
+                    />
+                    <Input
+                        style={{ marginVertical: 10 }}
+                        placeholder="largo"
+                        keyboardType="numeric"
+                        value={localHeightCm}
+                        onChangeText={setHeightCm}
+                    />
+                    
+                   
+                    <Input
+                        style={{ marginVertical: 10 }}
+                        placeholder="Zona del Vehiculo"
+                        value={zonaVehiculo}
+                        onChangeText={setZonaVehiculo}
+                    />
+                    <Input
+                        style={{ marginVertical: 10 }}
+                        placeholder="Precio"
+                        keyboardType="numeric"
+                        value={precio}
+                        onChangeText={setPrecio}
+                    />
+                    <Select
+                        style={{ marginVertical: 10 }}
+                        placeholder="Selecciona una subcategoría"
+                        onValueChange={setSubCategoryId}
+                    >
+                        <option value="">Selecciona una subcategoría</option>
+                        {subCategories.map((category) => (
+                        <option key={category.autopartID} value={category.subCategoryId}>
+                            {category.nombre}
+                        </option>
+                        ))}
+                    </Select>
+                    <Button
+                        style={{ marginVertical: 10 }}
+                        title="Guardar"
+                        onPress={validate}
+                    />
+                    </View>
+                    <Button title="Cerrar" onPress={onClose} style={{ marginVertical: 10 }} />
+                </View>
+                </Modal>
         </View>
     )
 }
@@ -160,4 +371,5 @@ const styles = StyleSheet.create({
       },
       
 })
+
 export default listProducts
