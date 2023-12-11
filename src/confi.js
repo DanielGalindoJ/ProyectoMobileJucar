@@ -1,0 +1,1 @@
+export const Base_url = 'https://localhost:7028/api/authentication/login'
