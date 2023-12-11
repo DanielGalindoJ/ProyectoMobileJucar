@@ -6,7 +6,7 @@ import axios from 'axios';
 import { Modal } from 'react-native-paper';
 
 //falta
-const listProducts = (autopat, isVisible) => {
+const listProducts = ( isVisible) => {
     const [categoría, setCategoria] = useState('');
     const [nombre, setNombre] = useState('');
     const [zonaVehiculo, setZonaVehiculo] = useState('');
@@ -26,7 +26,7 @@ const listProducts = (autopat, isVisible) => {
 
     useEffect(() => {
         getAutoparts();
-        getSubCategory();
+        
       }, );
 
       const getAutoparts = async () => {

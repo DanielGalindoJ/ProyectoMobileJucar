@@ -8,7 +8,7 @@ const FormAgregarProduct = () => {
   const [zonaVehiculo, setZonaVehiculo] = useState('');
   const [estado, setEstado] = useState ('');
   const [peso, setPeso ] = useState ('');
-  const [ alto, setAlto] = useState('');
+  const [alto, setAlto] = useState('');
   const [largo, setLargo] = useState('');
   const [precio, setPrecio] = useState ('');
       //validacion campos
