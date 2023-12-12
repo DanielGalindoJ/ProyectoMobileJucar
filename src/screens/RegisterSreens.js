@@ -2,8 +2,8 @@ import React, { useContext, useState } from "react";
 import { View, Text, TextInput, Button, TouchableOpacity } from "react-native-web";
 import { AuthContext } from "../context/AuthContext";
 import { styles } from "../navigation/TabNavigation/TabNavigation.styles";
-import { AuthContext } from "../context/AuthContext";
-import Navigation from "../components/navigation";
+import { AuthContext } from '../context/AuthContext';
+import Navigation from '../../components/Navigation';
 import Spinner from "react-native-loading-spinner-overlay";
 
 const RegisterScreen = () =>{

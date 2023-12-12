@@ -5,8 +5,8 @@ import {
     ChangepasswordScreen, 
     ChangeusernameScreen, 
     AccountScreen, 
-    OrderScreen, 
-    OrdersScreen,
+    // OrderScreen, 
+    // OrdersScreen,
     AdressesScreen,
     AddEditAdressScreen
 } from "../../screens/Account";

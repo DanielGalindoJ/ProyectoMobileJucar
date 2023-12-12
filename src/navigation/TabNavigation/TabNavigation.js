@@ -1,7 +1,7 @@
 import {View} from "react-native";
 import {Badge} from "react-native-paper";// va servir para el listado de los pedidos
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import {AuthScreen} from "../../screens/Auth/AuthScreen";
+// import {AuthScreen} from "../../screens/Auth/AuthScreen";
 import {screensName} from "../../utils";
 import {HomeStack, WishlistStack, CartStack, AccountStack} from "../stacks"
 import AwesomeIcon from "react-native-vector-icons/FontAwesome";

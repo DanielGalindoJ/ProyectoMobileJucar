@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import {View, Text} from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from '../screens/HomeScreen';
-import LoginScreen from "../screens/LoginScreen";
-import RegisterScreen from "../screens/RegisterScreen";
+import HomeScreen from '../screens/Home/HomeScreen';
+import LoginScreen from '../screens/loginScreen';
+import RegisterScreen from '../screens/RegisterSreens';
 import { AuthContext } from "../context/AuthContext";
 
 const Stack = createNativeStackNavigator();
