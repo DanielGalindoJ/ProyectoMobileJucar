@@ -8,7 +8,7 @@ import { useState } from "react";
 //import { StatusBar } from 'expo-status-bar';
 import { PaperProvider } from 'react-native-paper';
 import {RootNavigation} from './src/navigation/RootNavigation'
-import Navigation from './src/components/navigation';
+import Navigation from '../components/Navigation';
 import { AuthContext } from "../context/AuthContext";
 
 const loginScreen = (navigation) =>{
