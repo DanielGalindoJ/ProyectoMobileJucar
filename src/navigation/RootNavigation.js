@@ -1,4 +1,4 @@
-import { AuthScreen } from "../navigation/stacks/AccountStack";
+import { AuthScreen } from '../screens/Auth/AuthScreen';
 import {AppNavigation} from "./AppNavigation";
 
 export function RootNavigation() {

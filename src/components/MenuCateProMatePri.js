@@ -10,14 +10,10 @@ const MenuCateProMatePri =()=>{
              style={styles.logo}
             />
             <Text style={styles.title}>AUTOPARTES JUCAR SAS</Text>
-         </View>
-
-            <View style={styles.header}>
-                <Text style={styles.headerText}>AGREGAR NUEVO PRODUCTO</Text>
-            </View>
+         </View> 
 
             <View style={styles.card}>
-        {/* <Image style={styles.img} source={require('./PEDI.png')} /> */}
+         <Image style={styles.img} source={require('../../assets/PEDI.png')} /> 
         <Text style={styles.text}>CATEGORIAS</Text>
       </View>
       <View style={styles.card}>

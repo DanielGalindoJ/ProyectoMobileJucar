@@ -42,32 +42,32 @@ const HomeScreen =({modalVisible, setModalVisible}) =>{
                         <View style={styles.section}>
                           <View style={styles.cardContainer}>
                             <View style={styles.card}>
-                              <Image source={require('../../assets/cli.png')} style={styles.image} />
+                              <Image source={require('../../../assets/cli.png')} style={styles.image} />
                               <Text style={styles.cardText}>CLIENTES</Text>
                             </View>
 
                             <View style={styles.card}>
-                              <Image source={require('../../assets/produ.png')} style={styles.image} />
+                              <Image source={require('../../../assets/produ.png')} style={styles.image} />
                               <Text style={styles.cardText}>PRODUCTOS</Text>
                             </View>
 
                             <View style={styles.card}>
-                              <Image source={require('../../assets/pro.png')} style={styles.image} />
+                              <Image source={require('../../../assets/pro.png')} style={styles.image} />
                               <Text style={styles.cardText}>PROVEEDORES</Text>
                             </View>
 
                             <View style={styles.card}>
-                              <Image source={require('../../assets/PEDI.png')} style={styles.image} />
+                              <Image source={require('../../../assets/PEDI.png')} style={styles.image} />
                               <Text style={styles.cardText}>PEDIDOS</Text>
                             </View>
 
                             <View style={styles.card}>
-                              <Image source={require('../../assets/VENTAS.png')} style={styles.image} />
+                              <Image source={require('../../../assets/VENTAS.png')} style={styles.image} />
                               <Text style={styles.cardText}>FACTURAS</Text>
                             </View>
 
                             <View style={styles.card}>
-                              <Image source={require('../../assets/png-clipart-referral-marketing-organization-management-employee-referral-business-face-people-removebg-preview.png')} style={styles.image} />
+                              <Image source={require('../../../assets/png-clipart-referral-marketing-organization-management-employee-referral-business-face-people-removebg-preview.png')} style={styles.image} />
                               <Text style={styles.cardText}>EMPLEADOS</Text>
                             </View>
 

@@ -1,9 +1,7 @@
 import React, { useContext, useState } from "react";
-import { View, Text, TextInput, Button, TouchableOpacity } from "react-native-web";
+import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet, Image} from "react-native-web";
 import { AuthContext } from "../context/AuthContext";
 import { styles } from "../navigation/TabNavigation/TabNavigation.styles";
-import { AuthContext } from '../context/AuthContext';
-import Navigation from '../../components/Navigation';
 import Spinner from "react-native-loading-spinner-overlay";
 
 const RegisterScreen = () =>{
@@ -62,7 +60,7 @@ const RegisterScreen = () =>{
         </View>
     )
 }
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',

@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View, Image,TextInput, Button,Pressable, ScrollView,Modal,  } from 'react-native';
+import { StyleSheet, Text, View, Image,TextInput, Button,Pressable, ScrollView,Modal,TouchableOpacity  } from 'react-native';
 import { useState } from 'react';
+import menu2 from '../components/MenuProducts2'
 
 
 const MENU =({modalVisible, setModalVisible}) =>{
@@ -42,13 +43,19 @@ const MENU =({modalVisible, setModalVisible}) =>{
                         <View style={styles.section}>
                           <View style={styles.cardContainer}>
                             <View style={styles.card}>
-                              <Image source={require('../../assets/cli.png')} style={styles.image} />
+                              <Image source={require('../../../assets/cli.png')} style={styles.image} />
                               <Text style={styles.cardText}>CLIENTES</Text>
+                              <TouchableOpacity onPress={()=>navigation.Navigate('menu2')}>
+
+                              </TouchableOpacity>
                             </View>
 
                             <View style={styles.card}>
                               <Image source={require('../../assets/produ.png')} style={styles.image} />
                               <Text style={styles.cardText}>PRODUCTOS</Text>
+                              <TouchableOpacity onPress={()=>navigation.Navigate('menu2')} />
+                              <Button title="menu2"  onPress={()=>{menu2()}} />
+
                             </View>
 
                             <View style={styles.card}>

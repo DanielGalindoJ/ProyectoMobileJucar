@@ -1,17 +1,9 @@
-import React, { useContext } from "react";
-import { View, Text, TouchableOpacity } from "react-native-web";
-
-import { StyleSheet, Text, View, Image,TextInput, Button,Pressable,Alert,StatusBar } from 'react-native';
-import { useState } from "react";
-//import Menu from '../../src/components/Menu';
-// import logo from './assets/jucar'
-//import { StatusBar } from 'expo-status-bar';
-import { PaperProvider } from 'react-native-paper';
-import {RootNavigation} from './src/navigation/RootNavigation'
-import Navigation from '../components/Navigation';
+import React, { useContext, useState } from "react";
+import {View, Text, TextInput, Button, StyleSheet, TouchableOpacity} from "react-native";
+import Spinner from "react-native-loading-spinner-overlay";
 import { AuthContext } from "../context/AuthContext";
 
-const loginScreen = (navigation) =>{
+const loginScreen = (Navigation) =>{
   const [Usuario, setUsuario] = useState(null);
   const [Contraseña, setContraseña] = useState(null)
   // const val = useContext (AuthContext)
@@ -39,9 +31,10 @@ const loginScreen = (navigation) =>{
   return  (
     
       <View style={styles.container}>
+        <Spinner visible={isLoading}/>
         <View style={styles.navbar}>
           <Image
-            source={require('./assets/jucar.jpg')} style={styles.logo} />
+            source={require('../../assets/jucar.jpg')} style={styles.logo} />
           <Text style={styles.title}>AUTOPARTES JUCAR SAS</Text>
         </View>
 
@@ -57,19 +50,19 @@ const loginScreen = (navigation) =>{
             <Text style={styles.titleInicard}>Iniciar sesión </Text>
             <TextInput style={styles.input} placeholder="Usuario"
               value={Usuario}
-              onChangeText={text => setUsuario(text)} />
+              onChangeText={Text => setUsuario(Text)} />
 
             <TextInput
               style={styles.input}
               placeholder="Contraseña"
               secureTextEntry={true}
               value={Contraseña}
-              onChangeText={text => setContraseña(text)} />
+              onChangeText={Text => setContraseña(Text)} />
 
 
               //boton INGRESAR
 
-              <Button title="login" style={styles.button} onPress={validacionCampos}  />
+              <Button title="login" style={styles.button} onPress={()=>{login(Usuario,Contraseña,validacionCampos)}} />
 
             {/* <Pressable onPress={() => setModalVisible(!modalVisble)}
               style={styles.button}>
